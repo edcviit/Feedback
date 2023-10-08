@@ -1,4 +1,9 @@
 // Get references to form elements
+
+if (localStorage.getItem("form") == "filled") {
+  console.log("already filled");
+  location.replace("https://edcviit.github.io/Feedback/success");
+}
 const form = document.querySelector("form");
 const nameInput = document.querySelector('input[name="name"]');
 const branchSelect = document.querySelector('select[name="branch"]');
@@ -27,7 +32,7 @@ function handleSubmit(event) {
       if (response.ok) {
         alert("Thank You");
         location.replace("https://edcviit.github.io/Feedback/success");
-        form.reset();
+        localStorage.setItem("Form", "filled");
       } else {
         // Handle errors, e.g., show an error message
         alert("Feedback already submitted");
