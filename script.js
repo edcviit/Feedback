@@ -3,7 +3,6 @@ const form = document.querySelector("form");
 const nameInput = document.querySelector('input[name="name"]');
 const branchSelect = document.querySelector('select[name="branch"]');
 const emailInput = document.querySelector('input[name="email"]');
-const prnInput = document.querySelector('input[name="prn"]');
 const phoneInput = document.querySelector('input[name="phone"]');
 const feedbackInput = document.querySelector('input[name="feedback"]');
 
@@ -13,7 +12,6 @@ function handleSubmit(event) {
     name: nameInput.value,
     branch: branchSelect.value,
     email: emailInput.value,
-    prn: prnInput.value,
     phone: phoneInput.value,
     feedback: feedbackInput.value,
   };
@@ -28,10 +26,11 @@ function handleSubmit(event) {
     .then((response) => {
       if (response.ok) {
         alert("Thank You");
+        location.replace("https://edcviit.github.io/Feedback/success");
         form.reset();
       } else {
         // Handle errors, e.g., show an error message
-        alert("Registration failed. Please try again.");
+        alert("Feedback already submitted");
       }
     })
     .catch((error) => {
